@@ -20,7 +20,7 @@
     <value name="is_global">false</value>
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
+        <value name="node_type">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">varB</value>
         <value name="field_type">string</value>
@@ -58,9 +58,9 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">B|</value>
+  <value name="xml">B</value>
   <record name="type" javaclass="com.wm.util.Values">
-    <value name="node_type">record</value>
+    <value name="node_type">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">varB</value>
     <value name="field_type">string</value>
