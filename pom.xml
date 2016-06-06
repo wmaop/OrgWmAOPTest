@@ -5,10 +5,10 @@
 	<parent>
 		<groupId>org.wmaop</groupId>
 		<artifactId>wm-parent</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.5</version>
 	</parent>
 	
-	<artifactId>test</artifactId>
+	<artifactId>OrgWmAOPTest</artifactId>
 	<version>1.0.0</version>
 
 	<name>OrgWmAOPTest</name>
@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>org.wmaop</groupId>
 			<artifactId>wm-jbehave</artifactId>
-			<version>1.0.1-SNAPSHOT</version>
+			<version>1.0.1</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
