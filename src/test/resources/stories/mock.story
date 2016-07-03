@@ -31,7 +31,7 @@ Then pipeline has result == "abc"
 
 Scenario: Mock a non-existant service
 Given mock org.wmaop:doesNotExist always returning data/lorem.xml
-When invoke org.wmaop.test.services:rootMissingService with data/lorem.xml
+When invoke org.wmaop.test.services:rootMissingService without idata
 Then pipeline has lorem == "ipsum"
 
 Scenario: Prove output from unchanged svcD as transformer
