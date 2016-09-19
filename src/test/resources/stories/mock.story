@@ -28,7 +28,6 @@ Given mock org.wmaop.test.services:mockedOption always returning data/option-c.x
 When invoke org.wmaop.test.services:concatOptions without idata
 Then pipeline has result == "abc"
 
-
 Scenario: Mock a non-existant service
 Given mock org.wmaop:doesNotExist always returning data/lorem.xml
 When invoke org.wmaop.test.services:rootMissingService without idata
@@ -43,3 +42,15 @@ Given mock org.wmaop.test.services:svcD always returning data/transformedD.xml
 When invoke org.wmaop.test.services:rootSvc without idata
 Then pipeline has transformedD == "D"
 
+Scenario: Multi sequence response mock
+Given mock org.wmaop.test.services:mockedOption always returning data/option-c.xml,option-a.xml,option-b.xml
+When invoke org.wmaop.test.services:concatOptions without idata
+Then mock org.wmaop.test.services:mockedOption was invoked 3 times
+Then pipeline has result == "cab"
+
+Scenario: Multi sequence response mock on condition
+Given mock org.wmaop.test.services:mockedOption returning data/option-b.xml,option-a.xml when selection != "c"
+Given mock org.wmaop.test.services:mockedOption always returning data/option-c.xml
+When invoke org.wmaop.test.services:concatOptions without idata
+Then mock org.wmaop.test.services:mockedOption was invoked 3 times
+Then pipeline has result == "bac"
