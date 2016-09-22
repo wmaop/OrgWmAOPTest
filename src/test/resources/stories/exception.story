@@ -11,7 +11,7 @@ When invoke org.wmaop.test.services:rootSvc without idata
 Then exception java.lang.RuntimeException was thrown
 And pipeline has varA == "A"
 
-Scenario: Set a condition and check its not fired
+Scenario: Set a condition and check its not fired - test will pass as not interrupted by exception
 Given exception java.lang.RuntimeException thrown calling service org.wmaop.test.services:svcB when lorem == "flopsum" 
 When invoke org.wmaop.test.services:rootSvc with data/lorem.xml
 
@@ -31,3 +31,8 @@ Given exception java.lang.RuntimeException thrown before calling service org.wma
 When invoke org.wmaop.test.services:rootSvc with data/lorem.xml
 Then exception java.lang.RuntimeException was thrown
 And pipeline has varB != "B"
+
+Scenario: Check exception message.  Note exceptionMessage is set AFTER the 'exception .. was thrown' check is made.
+When invoke org.wmaop.test.services:exceptionSvc without idata
+Then exception com.wm.app.b2b.server.ServiceException was thrown
+And pipeline has exceptionMessage.contains("Service interface name required")
