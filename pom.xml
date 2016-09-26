@@ -9,7 +9,7 @@
 	</parent>
 	
 	<artifactId>OrgWmAOPTest</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.1.1</version>
 
 	<name>OrgWmAOPTest</name>
 
@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>org.wmaop</groupId>
 			<artifactId>wm-jbehave</artifactId>
-			<version>1.1.1-SNAPSHOT</version>
+			<version>1.1.1</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
