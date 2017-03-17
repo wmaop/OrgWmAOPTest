@@ -36,3 +36,9 @@ Scenario: Check exception message.  Note exceptionMessage is set AFTER the 'exce
 When invoke org.wmaop.test.services:exceptionSvc without idata
 Then exception com.wm.app.b2b.server.ServiceException was thrown
 And pipeline has exceptionMessage.contains("Service interface name required")
+
+Scenario: Create exception with message
+Given exception java.lang.RuntimeException("MyException") thrown after calling service org.wmaop.test.services:svcB when varA == "A"
+When invoke org.wmaop.test.services:rootSvc with data/lorem.xml
+Then exception java.lang.RuntimeException was thrown
+And pipeline has exceptionMessage.contains("MyException")
